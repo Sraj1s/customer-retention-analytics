@@ -12,10 +12,12 @@ data/processed/*
 !data/processed/.gitkeep
 reports/figures/*
 !reports/figures/.gitkeep
+!reports/figures/monthly_revenue.png
+!reports/figures/segment_revenue.png
+!reports/figures/cohort_retention.png
 *.db
 *.sqlite
 *.sqlite3
 
 # Power BI temporary files
 *.pbix~
-

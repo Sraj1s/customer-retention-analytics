@@ -36,6 +36,43 @@ December 2010 and December 2011. It is licensed under CC BY 4.0.
 This repository contains a small **synthetic** CSV only for running the pipeline
 immediately. The full UCI file is downloaded locally and is not committed.
 
+## Results from the full dataset
+
+| KPI | Result |
+|---|---:|
+| Valid transaction lines | 392,692 |
+| Completed orders | 18,532 |
+| Identifiable customers | 4,338 |
+| Revenue | £8,887,208.89 |
+| Average order value | £479.56 |
+| Repeat-customer rate | 65.58% |
+
+### Key findings
+
+- **Revenue is concentrated:** Champions are 1,118 customers (25.8%) but
+  generate 65.95% of revenue. Champions plus Loyal Customers generate 79.31%.
+- **Early retention is the largest growth opportunity:** weighted month-one
+  cohort retention is 22.71%, meaning most customers do not purchase again in
+  the next calendar month.
+- **A targeted win-back pool exists:** 201 At-Risk customers historically
+  generated £242,289.92, averaging £1,205.42 per customer.
+- **Demand accelerates before year-end:** revenue increased from £644,051 in
+  August 2011 to £1,156,206 in November 2011.
+- **The UK dominates the business:** it contributes about 82% of revenue.
+  Several smaller markets show high order values, but their customer counts are
+  low and should not be overgeneralized.
+
+December 2011 contains only data through December 9, so its apparent decline is
+not treated as a full-month performance result. See the
+[`executive summary`](reports/executive_summary.md) for recommendations and
+analytical caveats.
+
+![Monthly revenue trend](reports/figures/monthly_revenue.png)
+
+![Revenue by RFM segment](reports/figures/segment_revenue.png)
+
+![Monthly cohort retention](reports/figures/cohort_retention.png)
+
 ## Project structure
 
 ```text
@@ -157,12 +194,12 @@ Power BI.
 - [x] Cohort retention
 - [x] SQLite analytical model and SQL query pack
 - [x] Automated charts and tests
-- [ ] Run and document findings on the full UCI dataset
+- [x] Run and document findings on the full UCI dataset
+- [x] Publish executive findings and real-data visuals
 - [ ] Build final Power BI dashboard
-- [ ] Add dashboard screenshots and executive recommendations
+- [ ] Add Power BI dashboard screenshots
 
 ## Attribution
 
 Chen, D. (2015). *Online Retail* [Dataset]. UCI Machine Learning Repository.
 [https://doi.org/10.24432/C5BW33](https://doi.org/10.24432/C5BW33)
-
