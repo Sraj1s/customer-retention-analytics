@@ -10,7 +10,9 @@ CREATE TABLE transactions (
     customer_id TEXT NOT NULL,
     country TEXT NOT NULL,
     revenue REAL NOT NULL,
-    invoice_month TEXT NOT NULL
+    invoice_date_only DATE NOT NULL,
+    invoice_month TEXT NOT NULL,
+    invoice_month_start DATE NOT NULL
 );
 
 CREATE TABLE customers (
@@ -47,4 +49,3 @@ CREATE TABLE cohort_retention (
     retention_rate REAL NOT NULL,
     PRIMARY KEY (cohort_month, cohort_index)
 );
-

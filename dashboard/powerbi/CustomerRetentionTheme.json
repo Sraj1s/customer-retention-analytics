@@ -1,0 +1,24 @@
+{
+  "name": "Customer Retention Portfolio",
+  "dataColors": ["#2563EB", "#0F766E", "#7C3AED", "#D97706", "#DC2626", "#64748B", "#0891B2", "#65A30D"],
+  "background": "#F3F6FA",
+  "foreground": "#172033",
+  "tableAccent": "#2563EB",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "title": [{"show": true, "fontColor": {"solid": {"color": "#172033"}}, "fontSize": 12, "fontFamily": "Segoe UI Semibold"}],
+        "background": [{"show": true, "color": {"solid": {"color": "#FFFFFF"}}, "transparency": 0}],
+        "border": [{"show": false}],
+        "visualHeader": [{"show": false}]
+      }
+    },
+    "card": {
+      "*": {
+        "labels": [{"color": {"solid": {"color": "#172033"}}, "fontSize": 24}],
+        "categoryLabels": [{"color": {"solid": {"color": "#667085"}}, "fontSize": 10}]
+      }
+    }
+  }
+}
+

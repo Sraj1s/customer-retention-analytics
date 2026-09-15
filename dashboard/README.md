@@ -1,59 +1,30 @@
-# Power BI dashboard specification
+# Dashboard portfolio
 
-## Page 1 — Executive overview
+This folder contains the Power BI implementation kit and three full-data page
+previews. The preview generator uses the same processed tables and metric logic
+documented for Power BI, so the numbers can be validated before visual styling.
 
-**KPIs:** Revenue, Orders, Customers, Average Order Value, Repeat Customer Rate
+## Preview pages
 
-**Visuals:**
+### Executive overview
 
-- Monthly revenue trend
-- Revenue by country
-- Revenue by product
-- New versus repeat customers
+![Executive overview](screenshots/executive_overview.png)
 
-**Filters:** Date, country, product
+### Customer segments
 
-## Page 2 — Customer segments
+![Customer segments](screenshots/customer_segments.png)
 
-**KPIs:** Champion Revenue, At-Risk Revenue, Revenue per Customer
+### Cohort retention
 
-**Visuals:**
+![Cohort retention](screenshots/retention_analysis.png)
 
-- Segment customer count
-- Segment revenue
-- Recency versus monetary scatter plot
-- High-value at-risk customer table
+## Native Power BI implementation
 
-**Filters:** Segment, country, R score, F score, M score
+- [`powerbi/build-guide.md`](powerbi/build-guide.md): exact construction steps
+- [`powerbi/model.md`](powerbi/model.md): tables, relationships, and data types
+- [`powerbi/measures.dax`](powerbi/measures.dax): calculated table and measures
+- [`powerbi/CustomerRetentionTheme.json`](powerbi/CustomerRetentionTheme.json): report theme
 
-## Page 3 — Retention cohorts
-
-**Visuals:**
-
-- Monthly cohort-retention heatmap
-- Month-1 and Month-3 retention trends
-- Cohort size by acquisition month
-
-## Suggested DAX measures
-
-```DAX
-Total Revenue = SUM(cleaned_transactions[revenue])
-
-Total Orders = DISTINCTCOUNT(cleaned_transactions[invoice_no])
-
-Total Customers = DISTINCTCOUNT(cleaned_transactions[customer_id])
-
-Average Order Value = DIVIDE([Total Revenue], [Total Orders])
-
-Repeat Customers =
-CALCULATE(
-    COUNTROWS(customer_360),
-    customer_360[is_repeat_customer] = TRUE()
-)
-
-Repeat Customer Rate = DIVIDE([Repeat Customers], COUNTROWS(customer_360))
-```
-
-Use `cleaned_transactions.csv`, `customer_360.csv`, `rfm_segments.csv`, and
-`cohort_retention.csv` from `data/processed/` as the dashboard inputs.
-
+The native `.pbix` must be assembled in Power BI Desktop. The project is kept
+reproducible in source control through its inputs, transformations, measures,
+theme, page specification, and exported page images.

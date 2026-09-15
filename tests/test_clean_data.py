@@ -21,6 +21,8 @@ def test_cleaning_removes_invalid_customer_cancellation_and_duplicate():
 
     assert list(clean["invoice_no"]) == ["1", "4"]
     assert clean["revenue"].sum() == 15.0
+    assert str(clean.loc[0, "invoice_date_only"]) == "2024-01-01"
+    assert str(clean.loc[0, "invoice_month_start"].date()) == "2024-01-01"
     report = dict(zip(quality["metric"], quality["value"]))
     assert report["duplicate_rows_removed"] == 1
     assert report["cancellation_rows"] == 1
@@ -30,4 +32,3 @@ def test_cleaning_removes_invalid_customer_cancellation_and_duplicate():
 def test_cleaning_rejects_missing_required_columns():
     with pytest.raises(ValueError, match="Missing required columns"):
         clean_transactions(pd.DataFrame({"InvoiceNo": ["1"]}))
-

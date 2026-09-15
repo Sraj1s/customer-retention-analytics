@@ -73,6 +73,27 @@ analytical caveats.
 
 ![Monthly cohort retention](reports/figures/cohort_retention.png)
 
+## Dashboard portfolio pages
+
+The repository includes a complete Power BI build kit: a validated semantic
+model, reusable DAX measures, a custom JSON theme, exact page specifications,
+and three polished previews generated from the full dataset.
+
+See the [`Power BI build guide`](dashboard/powerbi/build-guide.md) for the
+step-by-step native Desktop build.
+
+### Executive overview
+
+![Executive overview dashboard](dashboard/screenshots/executive_overview.png)
+
+### Customer segments
+
+![Customer segments dashboard](dashboard/screenshots/customer_segments.png)
+
+### Cohort retention
+
+![Cohort retention dashboard](dashboard/screenshots/retention_analysis.png)
+
 ## Project structure
 
 ```text
@@ -196,8 +217,9 @@ Power BI.
 - [x] Automated charts and tests
 - [x] Run and document findings on the full UCI dataset
 - [x] Publish executive findings and real-data visuals
-- [ ] Build final Power BI dashboard
-- [ ] Add Power BI dashboard screenshots
+- [x] Create the Power BI model, DAX, theme, and three-page build specification
+- [x] Add three full-data dashboard previews
+- [ ] Assemble and export the native `.pbix` in Power BI Desktop
 
 ## Attribution
 

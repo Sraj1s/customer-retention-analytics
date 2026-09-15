@@ -63,7 +63,9 @@ def clean_transactions(raw: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
     clean = df.loc[valid].copy()
     clean["quantity"] = clean["quantity"].astype(int)
     clean["revenue"] = (clean["quantity"] * clean["unit_price"]).round(2)
+    clean["invoice_date_only"] = clean["invoice_date"].dt.date
     clean["invoice_month"] = clean["invoice_date"].dt.to_period("M").astype(str)
+    clean["invoice_month_start"] = clean["invoice_date"].dt.to_period("M").dt.to_timestamp()
     clean = clean.sort_values(["invoice_date", "invoice_no", "stock_code"]).reset_index(drop=True)
 
     quality = pd.DataFrame(
@@ -93,4 +95,3 @@ def clean_transactions(raw: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
         }
     )
     return clean, quality
-

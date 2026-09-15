@@ -13,7 +13,9 @@
 | `customer_id` | text | Customer identifier |
 | `country` | text | Customer country |
 | `revenue` | decimal | Derived as quantity multiplied by unit price |
+| `invoice_date_only` | date | Date-only field for the Power BI date relationship |
 | `invoice_month` | text | Calendar month in YYYY-MM format |
+| `invoice_month_start` | date | First day of the invoice month for time-series visuals |
 
 ## Customer 360 fields
 
@@ -49,4 +51,3 @@
 | `active_customers` | Unique purchasing customers in that cohort-period |
 | `cohort_size` | Unique customers acquired in cohort month |
 | `retention_rate` | Active customers divided by cohort size |
-
